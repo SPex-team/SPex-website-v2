@@ -41,7 +41,7 @@ const links = [
 const problems = [
   {
     icon: <Problems1Icon />,
-    name: "Rewards Immediately",
+    name: "Rewards unlock immediately",
     des: "SPs realize the future unlocking rewards immediately (no need to wait 180 days)",
     picture: <Problems1 />,
   },
@@ -60,7 +60,7 @@ const problems = [
   {
     icon: <Problems4Icon />,
     name: "Better Utilization",
-    des: "Better utilization of SP resources lightens the network burden caused by the over-use of ID numbers, effectively recycling the already existing ones; also provides the marketplace when later the network could charge a fee for node creation to increase revenue (an FIP required)",
+    des: "Lighten the network burden caused by the abuse creation of ID numbers via effectively recycling idle IDs",
     picture: <Problems4 />,
   },
 ];
@@ -86,6 +86,8 @@ const worksList = [
 
 const markets = [
   {
+    img: "/markets/fill.png",
+    img_title: false,
     logo: "https://pbs.twimg.com/profile_images/1621013624490954752/AKB2bBUf_400x400.jpg",
     title: "FILL",
     twitter: "https://twitter.com/FILLiquidity",
@@ -93,6 +95,8 @@ const markets = [
     des: "FILL is designed as a liquidity pool that will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
   },
   {
+    img: "/markets/filet.png",
+    img_title: false,
     logo: "https://pbs.twimg.com/profile_images/1392678030351425540/OL-pc5jc_400x400.png",
     title: "Filet",
     twitter: "https://twitter.com/Filet_finance",
@@ -100,6 +104,8 @@ const markets = [
     des: "Filet is a decentralized staking protocol deployed on Filecoin and BNB chain, providing secure staking service for Filecoin holders and helping storage providers in scaling their mining business.",
   },
   {
+    img: "/markets/stfil.png",
+    img_title: true,
     logo: "https://pbs.twimg.com/profile_images/1604833902870540288/JFeSYExJ_400x400.png",
     title: "STFIL",
     twitter: "https://twitter.com/stfil_io",
@@ -107,6 +113,8 @@ const markets = [
     des: "STFIL — Decentralized Liquidity Staking Protocol For Filecoin",
   },
   {
+    img: "/markets/mfil.png",
+    img_title: false,
     logo: "https://pbs.twimg.com/profile_images/1600778659371298816/0ngXcEDA_400x400.png",
     title: "MFIL",
     twitter: "https://twitter.com/MFILDAO",
@@ -114,6 +122,8 @@ const markets = [
     des: "MFIL is a DeFi liquidity staking product based on FVM that aims to solve the liquidity problem of FIL caused by staking",
   },
   {
+    img: "/markets/collectif.png",
+    img_title: true,
     logo: "https://pbs.twimg.com/profile_images/1614729203051827200/J0p2EPpg_400x400.jpg",
     title: "Collective DAO",
     twitter: "https://twitter.com/CollectifDAO",
@@ -227,7 +237,7 @@ export default function Home() {
           <div className="lg:sticky lg:top-60">
             <div className="container mx-auto">
               <h1 className="mb-14 mt-20 text-center text-5xl font-semibold">
-                What Problems Will it Solv
+                The problems it solves
               </h1>
               <div className="flex justify-center lg:items-center lg:justify-between">
                 <div>
@@ -340,21 +350,34 @@ export default function Home() {
         <section className="w-full">
           <div className="container mx-auto px-2 pb-[178px]">
             <h1 className="mb-14 mt-20 text-center text-5xl font-semibold">
-              Integrated Financial Servise Market
+              Integrated Financial Servise Market On FVM
             </h1>
             <div className="grid grid-cols-1 justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-3">
               {markets.map((market, index) => (
                 <div key={market.title} className="group relative h-[222px] w-[354px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <span
-                    className="absolute top-0 flex h-[222px] w-[354px] items-center justify-center rounded-[10px] bg-cover bg-center text-white/60 shadow-md transition-all duration-300 ease-linear [transform:rotateY(0deg)] group-hover:opacity-0 group-hover:[transform:rotateY(90deg)]"
+                    className="absolute top-0 flex h-[222px] w-[354px] items-center justify-center rounded-[10px] bg-cover bg-center text-white shadow-md transition-all duration-300 ease-linear [transform:rotateY(0deg)] group-hover:opacity-0 group-hover:[transform:rotateY(90deg)]"
                     style={{ backgroundImage: `url(/markets/bg${index % 3}.png)` }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="h-10 w-10" src={market.logo} alt={market.title} />
-                    <span className="ml-2 text-2xl font-semibold capitalize">{market.title}</span>
+                    {market.img_title && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img className="h-10" src={market.img} alt={market.title} />
+                    )}
+                    {!market.img_title && (
+                      <>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img className="h-10" src={market.img} alt={market.title} />
+                        <span className="ml-2 text-2xl font-semibold capitalize">
+                          {market.title}
+                        </span>
+                      </>
+                    )}
                   </span>
-                  <div className="absolute top-0 flex h-[222px] w-[354px] flex-col rounded-[10px] px-[30px] opacity-0 shadow-md backdrop-blur-3xl transition-all delay-300	duration-300 ease-linear [transform:rotateY(00deg)] group-hover:opacity-100 group-hover:[transform:rotateY(0deg)]">
+                  <div
+                    className="absolute top-0 flex h-[222px] w-[354px] flex-col rounded-[10px] px-[30px] opacity-0 shadow-md backdrop-blur-3xl transition-all	duration-300 ease-linear [transform:rotateY(90deg)] group-hover:opacity-100 group-hover:[transform:rotateY(0deg)]"
+                    title={market.des}
+                  >
                     <div className="flex justify-between pt-11">
                       <div className="flex items-center">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
