@@ -86,48 +86,77 @@ const worksList = [
 
 const markets = [
   {
-    img: "/banner.png",
-    logo: "/favicon.svg",
-    title: "fill",
-    twitter: "https://www.iplaysoft.com/free-images.html",
-    website: "https://www.iplaysoft.com/free-images.html",
-    des: "FILL is a liquidity pool, which will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
+    logo: "https://pbs.twimg.com/profile_images/1621013624490954752/AKB2bBUf_400x400.jpg",
+    title: "FILL",
+    twitter: "https://twitter.com/FILLiquidity",
+    website: "https://fillpool.space/",
+    des: "FILL is designed as a liquidity pool that will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
   },
   {
-    img: "/banner.png",
-    logo: "/favicon.svg",
-    title: "fill",
-    twitter: "https://www.iplaysoft.com/free-images.html",
-    website: "https://www.iplaysoft.com/free-images.html",
-    des: "FILL is a liquidity pool, which will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
+    logo: "https://pbs.twimg.com/profile_images/1392678030351425540/OL-pc5jc_400x400.png",
+    title: "Filet",
+    twitter: "https://twitter.com/Filet_finance",
+    website: "https://www.filet.finance/",
+    des: "Filet is a decentralized staking protocol deployed on Filecoin and BNB chain, providing secure staking service for Filecoin holders and helping storage providers in scaling their mining business.",
   },
   {
-    img: "/banner.png",
-    logo: "/favicon.svg",
-    title: "fill",
-    twitter: "https://www.iplaysoft.com/free-images.html",
-    website: "https://www.iplaysoft.com/free-images.html",
-    des: "FILL is a liquidity pool, which will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
+    logo: "https://pbs.twimg.com/profile_images/1604833902870540288/JFeSYExJ_400x400.png",
+    title: "STFIL",
+    twitter: "https://twitter.com/stfil_io",
+    website: "https://www.stfil.io/",
+    des: "STFIL — Decentralized Liquidity Staking Protocol For Filecoin",
+  },
+  {
+    logo: "https://pbs.twimg.com/profile_images/1600778659371298816/0ngXcEDA_400x400.png",
+    title: "MFIL",
+    twitter: "https://twitter.com/MFILDAO",
+    website: "https://mfil.modchain.io/#/stake",
+    des: "MFIL is a DeFi liquidity staking product based on FVM that aims to solve the liquidity problem of FIL caused by staking",
+  },
+  {
+    logo: "https://pbs.twimg.com/profile_images/1614729203051827200/J0p2EPpg_400x400.jpg",
+    title: "Collective DAO",
+    twitter: "https://twitter.com/CollectifDAO",
+    website: "https://collectif.finance",
+    des: "The Collective DAO is a non-custodial liquid staking protocol built on top of the Filecoin that lets users “stake” their FIL and receive clFIL (Collective Filecoin) in exchange.",
   },
 ];
 
 const Informations = [
   {
     icon: <Twitter />,
-    link: "https://www.google.com/search?q=taliwind+css+icon&oq=taliwind+css+icon&aqs=chrome..69i57j0i13i512l2j0i13i30l7.7465j0j7&sourceid=chrome&ie=UTF-8",
+    link: "https://twitter.com/FVM_Spex",
   },
   {
     icon: <Medium />,
-    link: "https://www.google.com/search?q=taliwind+css+icon&oq=taliwind+css+icon&aqs=chrome..69i57j0i13i512l2j0i13i30l7.7465j0j7&sourceid=chrome&ie=UTF-8",
+    link: "https://medium.com/@FVM_Spex",
   },
   {
     icon: <Github />,
-    link: "https://www.google.com/search?q=taliwind+css+icon&oq=taliwind+css+icon&aqs=chrome..69i57j0i13i512l2j0i13i30l7.7465j0j7&sourceid=chrome&ie=UTF-8",
+    link: "https://github.com/orgs/SPex-team/repositories",
   },
 ];
 
 export default function Home() {
   const [problem, setProblem] = useState(0);
+
+  const findProblemImg = index => {
+    // FIXME: SVGAElement color error
+    switch (index) {
+      case 1:
+        // eslint-disable-next-line @next/next/no-img-element
+        return <img src="/problems1.png" alt="Rewards Immediately" />;
+      case 2:
+        // eslint-disable-next-line @next/next/no-img-element
+        return <img src="/problems2.png" alt="Aonymity of Transaction" />;
+      case 3:
+        // eslint-disable-next-line @next/next/no-img-element
+        return <img src="/problems3.png" alt="Special IDs" />;
+      default:
+        // eslint-disable-next-line @next/next/no-img-element
+        return <img src="/problems4.png" alt="Better Utilization" />;
+    }
+  };
 
   const problemScroll = () => {
     if (document.documentElement.clientWidth < 1024) {
@@ -159,28 +188,36 @@ export default function Home() {
 
   return (
     <>
-      <header className="fixed bg-transparent top-0 backdrop-blur-lg w-full [font-family:GeneralSansVariable] z-50">
-        <div className="container mx-auto flex justify-between py-6 px-2 items-center">
+      <header className="fixed top-0 z-50 w-full bg-transparent backdrop-blur-lg [font-family:GeneralSansVariable]">
+        <div className="container mx-auto flex items-center justify-between py-6 px-2">
           <Link href="/">
             <Image width={104} height={38} src="/logo.svg" alt="SPex" />
           </Link>
-          <button className="bg-gradient-to-r from-[#0077FE] to-[#3BF4BB] text-white h-11 w-40 rounded-full hidden md:block">
+          <a
+            href="https://app.spex.website/"
+            rel="noreferrer"
+            className="block h-11 w-40 rounded-full bg-gradient-to-r from-[#0077FE] to-[#3BF4BB] text-center leading-[44px] text-white"
+          >
             Access App
-          </button>
+          </a>
         </div>
       </header>
       <main className="[font-family:GeneralSansVariable]">
         <section className="banner bg-[url('/banner_bg.webp')] bg-cover pt-36 pb-20">
-          <div className="px-2 container mx-auto flex items-center justify-between">
-            <div className="flex flex-col flex-1">
-              <p className="text-4xl md:text-4xl lg:text-6xl max-w-[509px] font-semibold">
+          <div className="container mx-auto flex items-center justify-between px-2">
+            <div className="flex flex-1 flex-col">
+              <p className="max-w-[509px] text-4xl font-semibold md:text-4xl lg:text-6xl">
                 SPex is a decentralized storage provider exchange space on FVM
               </p>
-              <button className="bg-gradient-to-r from-[#0077FE] to-[#3BF4BB] text-white h-11 w-40 rounded-full mt-10">
+              <a
+                href="https://app.spex.website/"
+                rel="noreferrer"
+                className="mt-10 hidden h-11 w-40 rounded-full bg-gradient-to-r from-[#0077FE] to-[#3BF4BB] text-center leading-[44px] text-white md:block"
+              >
                 Access App
-              </button>
+              </a>
             </div>
-            <div className="hidden md:block relative w-[454px] h-[462px] xl:w-[605px] xl:h-[616px]">
+            <div className="relative hidden h-[462px] w-[454px] md:block xl:h-[616px] xl:w-[605px]">
               <Image fill src="/banner.png" alt="SPex banner" />
             </div>
           </div>
@@ -189,7 +226,7 @@ export default function Home() {
         <section className="relative">
           <div className="lg:sticky lg:top-60">
             <div className="container mx-auto">
-              <h1 className="text-5xl font-semibold text-center mb-14 mt-20">
+              <h1 className="mb-14 mt-20 text-center text-5xl font-semibold">
                 What Problems Will it Solv
               </h1>
               <div className="flex justify-center lg:items-center lg:justify-between">
@@ -198,39 +235,39 @@ export default function Home() {
                     <div key={item.name}>
                       <div
                         data-active={index === problem}
-                        className="group p-[20px] rounded-[10px] data-[active=true]:border-[#d3f0fe] data-[active=true]:border data-[active=true]:bg-[#f6f8fc] text-[#57596c] data-[active=true]:text-[#111029] flex box-border max-w-[480px]"
+                        className="group box-border flex max-w-[480px] rounded-[10px] p-[20px] text-[#57596c] data-[active=true]:border data-[active=true]:border-[#d3f0fe] data-[active=true]:bg-[#f6f8fc] data-[active=true]:text-[#111029]"
                       >
-                        <div className="relative w-[60px] h-[60px] mr-[30px] group-data-[active=true]:text-[#0177FD] text-[#62A0FF]">
+                        <div className="relative mr-[30px] h-[60px] w-[60px] text-[#62A0FF] group-data-[active=true]:text-[#0177FD]">
                           {item.icon}
                           {/* <Image width={60} height={60} src={item.src} alt="icon" /> */}
                         </div>
                         <div className="flex-1">
-                          <div className="font-semibold text-2xl ">{item.name}</div>
-                          <p className="text-base mt-1">{item.des}</p>
+                          <div className="text-2xl font-semibold ">{item.name}</div>
+                          <p className="mt-1 text-base">{item.des}</p>
                         </div>
                       </div>
-                      <div className="lg:hidden block p-[40px]">{item.picture}</div>
+                      <div className={"block p-[40px] lg:hidden"}>{findProblemImg(index)}</div>
                     </div>
                   ))}
                 </div>
                 <div className="">
                   <div
                     data-active={problem === 0}
-                    className="w-[480px] h-[369px] hidden data-[active=true]:block"
+                    className="hidden h-[369px] w-[480px] data-[active=true]:block"
                   >
                     <Problems1 />
                   </div>
                   <Problems2
                     data-active={problem === 1}
-                    className="w-[496px] h-[460px] hidden data-[active=true]:block"
+                    className="hidden h-[460px] w-[496px] data-[active=true]:block"
                   />
                   <Problems3
                     data-active={problem === 2}
-                    className="w-[540px] h-[396px] hidden data-[active=true]:block"
+                    className="hidden h-[396px] w-[540px] data-[active=true]:block"
                   />
                   <Problems4
                     data-active={problem === 3}
-                    className="w-[496px] h-[437px] hidden data-[active=true]:block"
+                    className="hidden h-[437px] w-[496px] data-[active=true]:block"
                   />
                 </div>
               </div>
@@ -238,15 +275,15 @@ export default function Home() {
           </div>
           <div>
             {problems.map((item, index) => (
-              <div className="h-[400px] hidden lg:block" key={item.name} />
+              <div className="hidden h-[400px] lg:block" key={item.name} />
             ))}
           </div>
         </section>
 
-        <section className="w-full md:bg-[url('/work_bg.png')] bg-cover bg-center lg:bg-[url('/')]">
-          <div className="container mx-auto lg:bg-[url('/work_bg.png')] lg:bg-cover lg:bg-center md:h-[716px] relative">
-            <h1 className="text-5xl font-semibold text-center mb-14 mt-[136px]">How it Works</h1>
-            <div className="relative md:h-[450px] w-[450px] mx-auto top-[26px] px-2">
+        <section className="w-full bg-cover bg-center md:bg-[url('/work_bg.png')] lg:bg-[url('/')]">
+          <div className="container relative mx-auto md:h-[716px] lg:bg-[url('/work_bg.png')] lg:bg-cover lg:bg-center">
+            <h1 className="mb-14 mt-[136px] text-center text-5xl font-semibold">How it Works</h1>
+            <div className="relative top-[26px] mx-auto max-w-[450px] px-2 md:h-[450px]">
               {/* <div className="text-center text-2xl font-semibold absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[360px]">
                 <picture className="w-[157px] h-[168px] block">
                   <source srcSet="/woman.webp" />
@@ -270,56 +307,59 @@ export default function Home() {
                       : "md:left-0 md:-translate-x-1/2"
                   } ${index < 2 ? "md:top-[48px]" : "md:bottom-[48px]"}`}
                 >
-                  <div className="bg-gradient-to-r from-[#0077FE] to-[#3BF4BB] md:from-[#FFF] md:to-[#FFF] rounded-[10px] md:max-w-[226px] max-w-full px-[18px] h-[146px] relative opacity-70 text-white md:text-black space-y-6 md:space-y-0 md:opacity-100">
-                    <span className="text-xl font-semibold text-white bg-[#0077FE] w-5 h-5 rounded-full inline-block leading-5 text-center border-[5px] border-[#EFF3FC] box-content absolute top-0 -translate-y-1/2 left-[18px]">
+                  <div className="relative h-[146px] max-w-full space-y-6 rounded-[10px] bg-gradient-to-r from-[#0077FE] to-[#3BF4BB] px-[18px] text-white opacity-70 md:max-w-[226px] md:space-y-0 md:from-[#FFF] md:to-[#FFF] md:text-black md:opacity-100">
+                    <span className="absolute top-0 left-[18px] box-content inline-block h-5 w-5 -translate-y-1/2 rounded-full border-[5px] border-[#EFF3FC] bg-[#0077FE] text-center text-xl font-semibold leading-5 text-white">
                       {item.key}
                     </span>
-                    <p className="w-full [height:inherit] flex items-center text-sm whitespace-pre-line">
+                    <p className="flex w-full items-center whitespace-pre-line text-sm [height:inherit]">
                       {item.text}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="justify-between absolute container left-1/2 -translate-x-1/2 top-[266px] xl:top-[226px] items-end hidden lg:flex">
+            <div className="container absolute left-1/2 top-[266px] hidden -translate-x-1/2 items-end justify-between lg:flex xl:top-[226px]">
               <div className="text-center font-semibold">
-                <picture className="w-[120px] xl:w-[157px] block">
+                <picture className="block w-[120px] xl:w-[157px]">
                   <source srcSet="/woman.webp" />
                   <img src="/woman.png" alt="SP-SELLER" />
                 </picture>
-                <span className="mt-4 xl:text-2xl text-lg inline-block">SP-SELLER</span>
+                <span className="mt-4 inline-block text-lg xl:text-2xl">SP-SELLER</span>
               </div>
               <div className="text-center font-semibold">
-                <picture className="w-[110px] xl:w-[127px] block">
+                <picture className="block w-[110px] xl:w-[127px]">
                   <source srcSet="/men.webp" />
                   <img src="/men.png" alt="SP-BUYER" />
                 </picture>
-                <span className="mt-4 xl:text-2xl text-lg inline-block">SP-BUYER</span>
+                <span className="mt-4 inline-block text-lg xl:text-2xl">SP-BUYER</span>
               </div>
             </div>
           </div>
         </section>
 
         <section className="w-full">
-          <div className="container mx-auto pb-[178px] px-2">
-            <h1 className="text-5xl font-semibold text-center mb-14 mt-20">
+          <div className="container mx-auto px-2 pb-[178px]">
+            <h1 className="mb-14 mt-20 text-center text-5xl font-semibold">
               Integrated Financial Servise Market
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
-              {markets.map(market => (
-                <div key={market.title} className="group relative w-[354px] h-[222px]">
+            <div className="grid grid-cols-1 justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-3">
+              {markets.map((market, index) => (
+                <div key={market.title} className="group relative h-[222px] w-[354px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className="absolute top-0 w-[354px] h-[222px] [transform:rotateY(0deg)] group-hover:opacity-0 group-hover:[transform:rotateY(90deg)] rounded-[10px] shadow-md transition-all ease-linear duration-300"
-                    src={market.img}
-                    alt={market.title}
-                  />
-                  <div className="absolute top-0 w-[354px] h-[222px] backdrop-blur-3xl px-[30px] rounded-[10px] shadow-md group-hover:opacity-100 [transform:rotateY(90deg)] group-hover:[transform:rotateY(0deg)] opacity-0 delay-300	transition-all ease-linear duration-300">
+                  <span
+                    className="absolute top-0 flex h-[222px] w-[354px] items-center justify-center rounded-[10px] bg-cover bg-center text-white/60 shadow-md transition-all duration-300 ease-linear [transform:rotateY(0deg)] group-hover:opacity-0 group-hover:[transform:rotateY(90deg)]"
+                    style={{ backgroundImage: `url(/markets/bg${index % 3}.png)` }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="h-10 w-10" src={market.logo} alt={market.title} />
+                    <span className="ml-2 text-2xl font-semibold capitalize">{market.title}</span>
+                  </span>
+                  <div className="absolute top-0 flex h-[222px] w-[354px] flex-col rounded-[10px] px-[30px] opacity-0 shadow-md backdrop-blur-3xl transition-all delay-300	duration-300 ease-linear [transform:rotateY(00deg)] group-hover:opacity-100 group-hover:[transform:rotateY(0deg)]">
                     <div className="flex justify-between pt-11">
                       <div className="flex items-center">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img className="w-10 h-10" src={market.logo} alt={market.title} />
-                        <span className="capitalize text-2xl font-semibold ml-2">
+                        <img className="h-10 w-10" src={market.logo} alt={market.title} />
+                        <span className="ml-2 text-2xl font-semibold capitalize">
                           {market.title}
                         </span>
                       </div>
@@ -332,7 +372,9 @@ export default function Home() {
                         </a>
                       </div>
                     </div>
-                    <p className="text-base mt-3">{market.des}</p>
+                    <p className="text-base2 mt-3 mb-5 overflow-hidden text-ellipsis [-webkit-box-orient:vertical] [display:-webkit-box] [-webkit-line-clamp:3]">
+                      {market.des}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -340,7 +382,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="[font-family:GeneralSansVariable] bg-[#d0e6ff]">
+      <footer className="bg-[#d0e6ff] [font-family:GeneralSansVariable]">
         <div className="container mx-auto px-2">
           <div className="flex justify-between pt-20 pb-24">
             <Image width={104} height={38} src="/logo.svg" alt="SPex" />
@@ -349,14 +391,14 @@ export default function Home() {
                 <a
                   key={index}
                   href={item.link}
-                  className="hover:text-[#545368] w-[30px] h-[30px] inline-block"
+                  className="inline-block h-[30px] w-[30px] hover:text-[#545368]"
                 >
                   {item.icon}
                 </a>
               ))}
             </div>
           </div>
-          <hr className=" bg-[#B4C5DF] border-0 h-[1px]" />
+          <hr className=" h-[1px] border-0 bg-[#B4C5DF]" />
           <span className="inline-block py-5">Copyright © 2023 SPex All rights reserved.</span>
         </div>
       </footer>
