@@ -216,8 +216,12 @@ export default function Home() {
         <section className="banner bg-[url('/banner_bg.webp')] bg-cover pt-36 pb-20">
           <div className="container mx-auto flex items-center justify-between px-2">
             <div className="flex flex-1 flex-col">
-              <p className="max-w-[509px] text-4xl font-semibold md:text-4xl lg:text-6xl">
-                SPex is a decentralized storage provider exchange space on FVM
+              <p className="max-w-[909px] text-4xl font-extrabold md:text-4xl lg:text-6xl">
+                A Decentralized Storage Provider Exchange on FVM
+              </p>
+              <p className="md:text-1xl mt-[20px] max-w-[709px] text-xl font-bold lg:text-2xl">
+                Providing an all-in-one marketplace for Storage Providers to trade, swap, bid and
+                interact.
               </p>
               <a
                 href="https://app.spex.website/"
