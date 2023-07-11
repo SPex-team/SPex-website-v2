@@ -11,6 +11,8 @@ import Problems4Icon from "@/assets/images/problems4_icon.svg";
 import Github from "@/assets/images/github.svg";
 import Medium from "@/assets/images/medium.svg";
 import Twitter from "@/assets/images/twitter.svg";
+import Gitbook from "@/assets/images/gitbook.svg";
+import Discord from "@/assets/images/discord.svg";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -145,12 +147,20 @@ const Informations = [
     icon: <Github />,
     link: "https://github.com/orgs/SPex-team/repositories",
   },
+  {
+    icon: <Discord className="w-[33px]" />,
+    link: "https://discord.com/invite/2x8xbWUbbJ",
+  },
+  {
+    icon: <Gitbook className="h-[34px]" />,
+    link: "https://docs.spex.website/introduction/what-is-spex",
+  },
 ];
 
 export default function Home() {
   const [problem, setProblem] = useState(0);
 
-  const findProblemImg = index => {
+  const findProblemImg = (index) => {
     // FIXME: SVGAElement color error
     switch (index) {
       case 1:
@@ -182,7 +192,8 @@ export default function Home() {
     const banner = document.getElementsByClassName("banner")[0];
 
     // sticky 暂停的位置
-    const sticky_p = document.documentElement.scrollTop - banner.scrollHeight + (top - mt);
+    const sticky_p =
+      document.documentElement.scrollTop - banner.scrollHeight + (top - mt);
 
     const select = Math.floor(sticky_p / 400);
     setProblem(select < 0 ? 0 : select > 3 ? 3 : select);
@@ -220,8 +231,8 @@ export default function Home() {
                 A Decentralized Storage Provider Exchange on FVM
               </p>
               <p className="md:text-1xl mt-[20px] max-w-[709px] text-xl font-bold lg:text-2xl">
-                Providing an all-in-one marketplace for Storage Providers to trade, swap, bid and
-                interact.
+                Providing an all-in-one marketplace for Storage Providers to
+                trade, swap, bid and interact.
               </p>
               <a
                 href="https://app.spex.website/"
@@ -256,11 +267,15 @@ export default function Home() {
                           {/* <Image width={60} height={60} src={item.src} alt="icon" /> */}
                         </div>
                         <div className="flex-1">
-                          <div className="text-2xl font-semibold ">{item.name}</div>
+                          <div className="text-2xl font-semibold ">
+                            {item.name}
+                          </div>
                           <p className="mt-1 text-base">{item.des}</p>
                         </div>
                       </div>
-                      <div className={"block p-[40px] lg:hidden"}>{findProblemImg(index)}</div>
+                      <div className={"block p-[40px] lg:hidden"}>
+                        {findProblemImg(index)}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -296,7 +311,9 @@ export default function Home() {
 
         <section className="w-full bg-cover bg-center md:bg-[url('/work_bg.png')] lg:bg-[url('/')]">
           <div className="container relative mx-auto md:h-[716px] lg:bg-[url('/work_bg.png')] lg:bg-cover lg:bg-center">
-            <h1 className="mb-14 mt-[136px] text-center text-5xl font-semibold">How it Works</h1>
+            <h1 className="mb-14 mt-[136px] text-center text-5xl font-semibold">
+              How it Works
+            </h1>
             <div className="relative top-[26px] mx-auto max-w-[450px] px-2 md:h-[450px]">
               {/* <div className="text-center text-2xl font-semibold absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[360px]">
                 <picture className="w-[157px] h-[168px] block">
@@ -338,14 +355,18 @@ export default function Home() {
                   <source srcSet="/woman.webp" />
                   <img src="/woman.png" alt="SP-SELLER" />
                 </picture>
-                <span className="mt-4 inline-block text-lg xl:text-2xl">SP-SELLER</span>
+                <span className="mt-4 inline-block text-lg xl:text-2xl">
+                  SP-SELLER
+                </span>
               </div>
               <div className="text-center font-semibold">
                 <picture className="block w-[110px] xl:w-[127px]">
                   <source srcSet="/men.webp" />
                   <img src="/men.png" alt="SP-BUYER" />
                 </picture>
-                <span className="mt-4 inline-block text-lg xl:text-2xl">SP-BUYER</span>
+                <span className="mt-4 inline-block text-lg xl:text-2xl">
+                  SP-BUYER
+                </span>
               </div>
             </div>
           </div>
@@ -358,20 +379,33 @@ export default function Home() {
             </h1>
             <div className="grid grid-cols-1 justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-3">
               {markets.map((market, index) => (
-                <div key={market.title} className="group relative h-[222px] w-[354px]">
+                <div
+                  key={market.title}
+                  className="group relative h-[222px] w-[354px]"
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <span
                     className="absolute top-0 flex h-[222px] w-[354px] items-center justify-center rounded-[10px] bg-cover bg-center text-white shadow-md transition-all duration-300 ease-linear [transform:rotateY(0deg)] group-hover:opacity-0 group-hover:[transform:rotateY(90deg)]"
-                    style={{ backgroundImage: `url(/markets/bg${index % 3}.png)` }}
+                    style={{
+                      backgroundImage: `url(/markets/bg${index % 3}.png)`,
+                    }}
                   >
                     {market.img_title && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img className="h-10" src={market.img} alt={market.title} />
+                      <img
+                        className="h-10"
+                        src={market.img}
+                        alt={market.title}
+                      />
                     )}
                     {!market.img_title && (
                       <>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img className="h-10" src={market.img} alt={market.title} />
+                        <img
+                          className="h-10"
+                          src={market.img}
+                          alt={market.title}
+                        />
                         <span className="ml-2 text-2xl font-semibold capitalize">
                           {market.title}
                         </span>
@@ -385,17 +419,35 @@ export default function Home() {
                     <div className="flex justify-between pt-11">
                       <div className="flex items-center">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img className="h-10 w-10" src={market.logo} alt={market.title} />
+                        <img
+                          className="h-10 w-10"
+                          src={market.logo}
+                          alt={market.title}
+                        />
                         <span className="ml-2 text-2xl font-semibold capitalize">
                           {market.title}
                         </span>
                       </div>
                       <div className="flex items-center">
-                        <a href={market.website} target={"_blank"} className="mr-3">
-                          <Image width={24} height={24} src="/website.png" alt="website" />
+                        <a
+                          href={market.website}
+                          target={"_blank"}
+                          className="mr-3"
+                        >
+                          <Image
+                            width={24}
+                            height={24}
+                            src="/website.png"
+                            alt="website"
+                          />
                         </a>
                         <a href={market.twitter} target={"_blank"}>
-                          <Image width={24} height={24} src="/twitter.png" alt="twitter" />
+                          <Image
+                            width={24}
+                            height={24}
+                            src="/twitter.png"
+                            alt="twitter"
+                          />
                         </a>
                       </div>
                     </div>
@@ -413,7 +465,7 @@ export default function Home() {
         <div className="container mx-auto px-2">
           <div className="flex justify-between pt-20 pb-24">
             <Image width={104} height={38} src="/logo.svg" alt="SPex" />
-            <div className="space-x-6">
+            <div className="space-x-6 pr-10">
               {Informations.map((item, index) => (
                 <a
                   key={index}
@@ -426,7 +478,9 @@ export default function Home() {
             </div>
           </div>
           <hr className=" h-[1px] border-0 bg-[#B4C5DF]" />
-          <span className="inline-block py-5">Copyright © 2023 SPex All rights reserved.</span>
+          <span className="inline-block py-5">
+            Copyright © 2023 SPex All rights reserved.
+          </span>
         </div>
       </footer>
     </>
