@@ -49,14 +49,14 @@ const problems = [
   },
   {
     icon: <Problems2Icon />,
-    name: "Aonymity of Transaction",
+    name: "Anonymity of Transaction",
     des: "Anti-censorship of SPs ownership transfer via the anonymity of transaction",
     picture: <Problems2 />,
   },
   {
     icon: <Problems3Icon />,
     name: "Special IDs",
-    des: "SPs realize the monetray value of special IDs or the IDs with hitorical reputation",
+    des: "SPs realize the monetray value of special IDs or the IDs with historical reputation",
     picture: <Problems3 />,
   },
   {
