@@ -90,11 +90,11 @@ const markets = [
   {
     img: "/markets/fill.png",
     img_title: false,
-    logo: "https://pbs.twimg.com/profile_images/1621013624490954752/AKB2bBUf_400x400.jpg",
-    title: "FILL",
-    twitter: "https://twitter.com/FILLiquidity",
-    website: "https://fillpool.space/",
-    des: "FILL is designed as a liquidity pool that will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
+    logo: "/markets/fill_logo.png",
+    title: "FILLiquid",
+    twitter: "https://twitter.com/FILLiquid",
+    website: "https://filliquid.io/",
+    des: "FILLiquid is designed as a liquidity pool that will be implemented on FVM as a fully open-sourced, decentralized, algorithm-based lending platform",
   },
   {
     img: "/markets/filet.png",
