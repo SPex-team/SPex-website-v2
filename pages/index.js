@@ -90,7 +90,7 @@ const markets = [
   {
     img: "/markets/fill.png",
     img_title: false,
-    logo: "/markets/fill_logo.png",
+    logo: "https://filscan-v2.oss-cn-hongkong.aliyuncs.com/fvm_manage/images/FIKKLL.png",
     title: "FILLiquid",
     twitter: "https://twitter.com/FILLiquid",
     website: "https://filliquid.io/",
